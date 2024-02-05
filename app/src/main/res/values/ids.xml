@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="book_count" type="id" />
+    <item name="book_count_number" type="id" />
+    <item name="book_count_text" type="id" />
+    <item name="read_count_number" type="id" />
+</resources>
