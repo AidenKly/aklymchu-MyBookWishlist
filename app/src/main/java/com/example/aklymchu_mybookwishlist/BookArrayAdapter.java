@@ -14,6 +14,9 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class BookArrayAdapter extends ArrayAdapter {
+    //Purpose: Host the logic for the BookArrayAdapter
+    //Design rationale: This class is an extension of ArrayAdapter and is used to
+    // extend the functionality to display more information than the standard ArrayAdaptor.
     public BookArrayAdapter(Context context, ArrayList<Book> BookList) {
         super(context,0, BookList);
     }

@@ -4,6 +4,10 @@ import java.time.Year;
 import java.util.Date;
 
 public class Book {
+    //Purpose: Represent a book and has getters and setters for the book title, author,
+    // genre, publication year and read status.
+    //Design rationale: This class is used as a simple representation for a book. It will be
+    // used in an array of books and each book can be modified.
     private String title;
     private String author;
     private String genre;

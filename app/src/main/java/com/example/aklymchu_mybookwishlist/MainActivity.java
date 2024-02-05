@@ -30,14 +30,14 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements ModifyBookFragment.ModifyBookDialogListener {
-
+    //Purpose: Host the logic for the main android activity
+    //Design rationale: This Class is used to contain the logic for the main android app activity
+    //is is responsible for the implementaions of modifyBook(), deleteBook() as well
+    // as the on click listeners for the floating action button and the book list.
     private ArrayList<Book> bookDataList = new ArrayList<Book>();
     private ListView bookListView;
     private BookArrayAdapter bookArrayAdapter;
     private Book selectedBook;
-
-    private TextView bookCount;
-    private TextView readCount;
 
     @Override
     public void modifyBook(Book book, String title, String author, String genre, Integer year, Boolean isRead) {
@@ -57,28 +57,15 @@ public class MainActivity extends AppCompatActivity implements ModifyBookFragmen
                 bookDataList.add(book);
                 bookArrayAdapter.notifyDataSetChanged();
             } else {
-                int bookCountNumber = Integer.parseInt(bookCount.getText().toString());
-                bookCount.setText(bookCountNumber+1);
                 bookArrayAdapter.notifyDataSetChanged();
             }
         }
-        for (Book bookInDataList : bookDataList ){
-            if (bookInDataList.getRead()) {
-                readCount.setText(Integer.parseInt(readCount.getText().toString()));
-            }
-        }
+
     }
 
     @Override
     public void deleteBook(Book book) {
         bookDataList.remove(book);
-        int bookCountNumber = Integer.parseInt(bookCount.getText().toString());
-        bookCount.setText(bookCountNumber-1);
-        for (Book bookInDataList : bookDataList ){
-            if (bookInDataList.getRead()) {
-                readCount.setText(Integer.parseInt(readCount.getText().toString()));
-            }
-        }
         bookArrayAdapter.notifyDataSetChanged();
     }
 
@@ -101,10 +88,6 @@ public class MainActivity extends AppCompatActivity implements ModifyBookFragmen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Book newBook = new Book("Artemis", "Andy Weir", "science fiction", 2017, true);
-        Book newBook2 = new Book("Artemis", "Andy Weir", "science fiction", 2017, true);
-        bookDataList.add(newBook);
-        bookDataList.add(newBook2);
 
         bookListView =findViewById(R.id.book_list);
 
@@ -114,9 +97,6 @@ public class MainActivity extends AppCompatActivity implements ModifyBookFragmen
         bookListView.setOnItemClickListener(bookListSelector);
         FloatingActionButton fab = findViewById(R.id.button_add_book);
         fab.setOnClickListener(addBookButtonListener);
-
-        bookCount = findViewById(R.id.book_count_number);
-        readCount = findViewById(R.id.read_count_number);
 
     }
 

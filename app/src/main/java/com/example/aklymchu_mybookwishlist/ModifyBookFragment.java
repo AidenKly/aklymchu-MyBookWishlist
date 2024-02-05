@@ -16,7 +16,10 @@ import androidx.fragment.app.DialogFragment;
 import java.time.Year;
 
 public class ModifyBookFragment extends DialogFragment {
-    interface ModifyBookDialogListener {
+    //Purpose: Host the logic for the Modify book fragment
+    //Design rationale: This Class is used to contain the logic for the
+    // modify book fragment and is in charge of creating the "Add/Modify Book" dialogue box
+    public interface ModifyBookDialogListener {
         void modifyBook(Book book, String title, String author, String genre, Integer year, Boolean isRead);
         void deleteBook(Book book);
     }
